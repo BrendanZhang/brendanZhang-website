@@ -15,7 +15,7 @@
         <nuxt-child class="router"/>
       </section>
       <section v-bind:class="{active:selectTab.project}" v-on:click="switchTab()">
-        <router-link to="/project" class="clickable">
+        <nuxt-link to="/project" class="clickable">
           <div class="Tab-inner">
             <h2>01</h2>
             <h1>Portfolio</h1>
@@ -24,8 +24,8 @@
             <h2>01</h2>
             <h1>Portfolio</h1>
           </div>
-        </router-link>
-        <router-view class="router"></router-view>
+        </nuxt-link>
+        <nuxt-child class="router"/>
       </section>
       <section v-bind:class="{active:selectTab.blog}" v-on:click="switchTab()">
         <router-link to="/blog" class="clickable">
@@ -59,9 +59,10 @@
 <script>
 import store from '~/store/index'
 export default {
+	transition: 'page',
 	name: 'resumeBoard',
 	store,
-	created() {
+	mounted() {
 		this.switchTab()
 	},
 	methods: {
@@ -69,9 +70,16 @@ export default {
 			for (let i in this.selectTab) {
 				this.selectTab[i] = false
 			}
-			console.log(this.$route.name.replace('index-', ''))
+			console.log('activeName')
+			console.log(
+				this.$route.name
+					.replace('index-', '')
+					.replace('-id', '')
+			)
 			this.selectTab[
-				this.$route.name.replace('index-', '')
+				this.$route.name
+					.replace('index-', '')
+					.replace('-id', '')
 			] = true
 		}
 	},

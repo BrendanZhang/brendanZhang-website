@@ -1,12 +1,12 @@
 <template>
   <main class="projectsList">
     <div class="projectInner" v-for="project in projects">
-      <router-link :to="`/project/detail/${project.id}`">
+      <nuxt-link :to="`/project/${project.id}`">
         <div class="projectList-title">
           <h2>{{project.name.split(' ')[0]}}</h2>
           <h3>{{project.name.split(' ')[1]}}</h3>
         </div>
-      </router-link>
+      </nuxt-link>
       <img :src="`/portfolio/${project.projectImg}`" alt="projectImg">
     </div>
   </main>

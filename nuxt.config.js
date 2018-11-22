@@ -41,7 +41,8 @@ module.exports = {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'normalize.css',
-    '~/assets/index/clickBox.scss'
+    '~/assets/index/clickBox.scss',
+    '~/assets/main.css'
   ],
 
   /*

@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
       <!-- slides -->
       <swiper-slide v-for="project in projects">
-        <router-link :to="`/project/detail/${project.id}`" class="router-clickArea">
+        <nuxt-link :to="`/project/${project.id}`" class="router-clickArea">
           <div class="projectInfo">
             <header class="slider-header">
               <h2>{{project.name.split(' ')[0]}}</h2>
@@ -25,7 +25,7 @@
           <div class="imgContainer">
             <img :src="`/portfolio/${project.projectImg}`" alt="projectImg">
           </div>
-        </router-link>
+        </nuxt-link>
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
