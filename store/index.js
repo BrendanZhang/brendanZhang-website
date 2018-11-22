@@ -12,7 +12,7 @@ const store = () =>
         project: false,
         blog: false,
         ability: false,
-        normal: true
+        index: true
       },
       aboutMe: {
         personalInfo: {},

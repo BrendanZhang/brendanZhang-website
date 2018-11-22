@@ -13,7 +13,21 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    style: [
+      {
+        type: 'text/css',
+        id: 'styleTag',
+        rel: 'stylesheet',
+        href: 'style.css'
+      },
+      {
+        cssText:
+          '.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}',
+        type: 'text/css'
+      }
+    ],
+    script: [{ src: '//at.alicdn.com/t/font_801219_w0oqhsxymj.js' }]
   },
 
   /*
@@ -24,12 +38,16 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    'normalize.css',
+    '~/assets/index/clickBox.scss'
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/plugins.js'],
 
   /*
   ** Nuxt.js modules
@@ -37,7 +55,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    ['@nuxtjs/pwa', { icon: false }]
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration
@@ -56,3 +74,50 @@ module.exports = {
     extend(config, ctx) {}
   }
 }
+/* import about from '~page/index/about'
+import project from './views/project'
+import blog from './views/blog'
+import sketch from './views/sketch'
+import projectDetail from './components/TabContent/portfolio/projectDetail'
+
+export default {
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push(
+        {
+          path: '/',
+          name: 'normal',
+          component: undefined
+        },
+        {
+          path: '/ability',
+          name: 'ability',
+          component: sketch
+        },
+        {
+          path: '/about',
+          name: 'about',
+          component: about
+        },
+        {
+          path: '/project',
+          name: 'project',
+          component: project,
+          children: [
+            {
+              path: '/project/detail/:id',
+              name: 'project',
+              component: projectDetail
+            }
+          ]
+        },
+        {
+          path: '/blog',
+          name: 'blog',
+          component: blog
+        }
+      )
+    }
+  }
+}
+ */

@@ -1,0 +1,81 @@
+.router {
+  position: relative;
+  .Tab-inner-unfold {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    animation: 0.6s slidein;
+    h2 {
+      color: rgb(184, 184, 184);
+      font-size: 13px;
+      font-weight: 100;
+    }
+    h1 {
+      writing-mode: vertical-lr;
+      transition: all 0.3s;
+      margin-top: 60px;
+      font-size: 16px;
+      color: rgb(235, 235, 235);
+      font-weight: 200;
+      transform: rotate(180deg);
+    }
+  }
+  .clickBox {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    a.cross {
+      margin: 0 5px 40px 0;
+      display: block;
+      svg {
+        fill: #b1b0b0;
+        height: 20px;
+        width: 20px;
+      }
+    }
+    .preAndNext {
+      display: flex;
+      div.pre {
+        svg {
+          height: 25px;
+          width: 25px;
+          fill: #4a4848;
+          transform: rotate(180deg);
+        }
+      }
+      a.pre {
+        svg {
+          height: 25px;
+          width: 25px;
+          fill: #b1b0b0;
+          transform: rotate(180deg);
+        }
+      }
+      a.next {
+        svg {
+          margin-left: 20px;
+          height: 25px;
+          width: 25px;
+          fill: #b1b0b0;
+        }
+      }
+      div.next {
+        svg {
+          margin-left: 20px;
+          height: 25px;
+          width: 25px;
+          fill: #4a4848;
+        }
+      }
+    }
+  }
+}
