@@ -72,6 +72,12 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    uglify: {
+      uglifyOptions: {
+        compress: false
+      },
+      cache: '/path/to/cache/dir'
+    },
     extend(config, ctx) {}
   }
 }
