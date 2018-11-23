@@ -29,7 +29,7 @@
           :percentage="toNumber(skill.progress)"
           :width="50"
           type="circle"
-          color="#b34242d5"
+          color="#ffb935"
         ></el-progress>
         <svg class="skillIcon" aria-hidden="true">
           <use v-bind:xlink:href="`#icon-${skill.icon}`"></use>
@@ -73,7 +73,7 @@ export default {
 			)
 			// 绘制图表
 			myChart.setOption({
-				backgroundColor: '#222020',
+				backgroundColor: '#262424',
 				title: {},
 				tooltip: {},
 				legend: {},
@@ -119,12 +119,13 @@ export default {
 						symbol: 'none',
 						lineStyle: {
 							width: 1,
-							opacity: 0.8
+							opacity: 0.8,
+							color: '#ffb633'
 						},
 						areaStyle: {
 							normal: {
 								opacity: 0.6,
-								color: '#b34242d5'
+								color: '#ffb63380'
 							}
 						},
 						data: [
@@ -142,17 +143,34 @@ export default {
 </script>
 
 <style lang="scss">
-.skills {
-	margin-top: 90px;
-	width: 900px;
+.skills-container {
 	display: flex;
+	flex-direction: column;
+	background: #242222;
+	padding: 80px 35px 80px 35px;
+}
+.header {
+	margin-bottom: 50px;
+	font-size: 15px;
+	font-weight: 100;
+	.breakLine {
+		margin-top: 5px;
+		width: 60px;
+		height: 1px;
+		background: #ffb633;
+	}
+}
+.skills {
+	display: flex;
+	background: #262424;
 	.skillsRadar {
 		position: relative;
 		height: 100%;
-		width: 37%;
+		width: 40%;
 		margin-right: 3%;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		flex-direction: column;
 		.header {
 			display: flex;
@@ -170,7 +188,7 @@ export default {
 				display: block;
 				content: '';
 				align-self: flex-start;
-				background: #f56c6c;
+				background: #ffb633;
 				height: 3px;
 				width: 4.25vw;
 			}
@@ -178,16 +196,16 @@ export default {
 
 		.row-rightSkills {
 			flex-direction: column;
-
+			margin-top: 10px;
 			display: flex;
 
 			.skillsContent {
 				padding: 10px;
-				border-left: 2px solid #c75454;
+				border-left: 2px solid #ffb935;
 				box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 				display: flex;
 				position: relative;
-				margin-bottom: 30px;
+
 				.el-progress__text {
 					display: none;
 				}
@@ -222,12 +240,12 @@ export default {
 				position: relative;
 				svg {
 					position: absolute;
-					fill: #f3f3f5;
+					fill: #222020;
+					background: #ffb633;
 					width: 26px;
 					height: 26px;
-					background: #b34242d5;
 					border-radius: 13px;
-					border: 2px solid #b34242d5;
+					border: 2px solid #ffb633;
 				}
 				.vue {
 					top: 150px;
@@ -242,7 +260,6 @@ export default {
 					top: -40px;
 				}
 				.http {
-					fill: #f3f3f5;
 					left: 200px;
 					top: 25px;
 				}

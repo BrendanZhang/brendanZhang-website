@@ -86,12 +86,34 @@ $designWidth: 1920;
 						margin-top: 130px;
 						display: flex;
 						justify-content: flex-start;
-						height: 450px;
+						height: 550px;
+						padding: 50px 0;
 						position: relative;
+						background: rgb(33, 30, 30);
 						div.photo {
 							width: 40%;
 							height: 100%;
-							background: white;
+							position: relative;
+							&::after {
+								content: '';
+								display: block;
+								background: white;
+								width: 90%;
+								height: 90%;
+								position: absolute;
+								right: 0;
+								bottom: 0;
+							}
+							&::before {
+								content: '';
+								display: block;
+								border: 5px solid #ffb935;
+								width: 90%;
+								height: 90%;
+								position: absolute;
+								left: 0;
+								top: 0;
+							}
 						}
 						.row-right {
 							display: flex;
@@ -100,13 +122,104 @@ $designWidth: 1920;
 							justify-content: flex-start;
 							align-items: flex-start;
 							flex: 1;
-							padding: 50px 0 0 50px;
+							padding: 45px 35px 0 50px;
 							main.aboutMe-main-container {
 								width: 100%;
 								margin-top: 30px;
 								display: flex;
-								justify-content: flex-start;
-								align-items: center;
+								flex: 1;
+								justify-content: space-between;
+								align-items: flex-start;
+								flex-direction: column;
+								div.aboutMe-header-h1 {
+									display: flex;
+									flex-direction: row;
+									width: 100%;
+									justify-content: space-between;
+									.aboutMe-connection {
+										padding: 20px 10px 20px 10px;
+										display: flex;
+
+										border-right: 5px solid
+											#ffb223;
+										border-bottom: 5px solid
+											#ffb223;
+										flex-direction: column;
+										justify-content: center;
+										align-items: flex-start;
+										.github,
+										.wechat {
+											display: flex;
+											width: 100%;
+											justify-content: space-between;
+											align-items: center;
+											div {
+												display: flex;
+												justify-content: center;
+												align-items: flex-end;
+											}
+											svg {
+												height: 20px;
+												width: 20px;
+												fill: #ffb223;
+											}
+											a {
+												color: rgb(
+													175,
+													175,
+													175
+												);
+												margin-left: 10px;
+											}
+											p {
+												color: rgb(
+													175,
+													175,
+													175
+												);
+												margin-left: 10px;
+											}
+										}
+										.wechat {
+											margin-top: 5px;
+										}
+									}
+									.title1 {
+										display: flex;
+										justify-content: flex-start;
+										width: 40%;
+										height: 100%;
+										.sayHello {
+											display: flex;
+											padding-left: 20px;
+											flex-direction: column;
+											align-items: flex-end;
+											display: none;
+											h3 {
+												font-size: 20px;
+												margin: 0;
+												color: rgb(
+													202,
+													202,
+													202
+												);
+											}
+											p {
+												font-size: 18px;
+												color: white;
+											}
+										}
+										h1 {
+											margin: 0 0 0 12px;
+											font-size: 20px;
+											font-weight: 100;
+										}
+									}
+									.mainText {
+										flex: 1;
+										height: 100%;
+									}
+								}
 								.row-1 {
 									display: flex;
 									justify-content: space-between;
@@ -142,6 +255,7 @@ $designWidth: 1920;
 										sans-serif;
 									font-weight: 100;
 									font-size: 50px;
+									color: #ffb935;
 								}
 								.aboutMe-message-tltle2 {
 									display: inherit;
@@ -169,95 +283,15 @@ $designWidth: 1920;
 								}
 							}
 						}
-						div.aboutMe-header-h1 {
-							position: absolute;
-							bottom: 0;
-							left: 0;
-							display: flex;
-							height: 90px;
-							flex-direction: row;
-							width: 100%;
-							justify-content: space-between;
-							padding-top: 20px;
-							align-items: flex-end;
-							background: #b34242d5;
-							.aboutMe-connection {
-								margin: 0 45px;
-								display: flex;
-								flex-direction: column;
-								justify-content: center;
-								align-items: flex-start;
-								.github,
-								.wechat {
-									display: flex;
-									width: 100%;
-									justify-content: space-between;
-									align-items: center;
-									div {
-										display: flex;
-										justify-content: center;
-										align-items: flex-end;
-									}
-									svg {
-										height: 20px;
-										width: 20px;
-										color: white;
-									}
-									.qq {
-										fill: white;
-									}
-									a {
-										fill: rgb(175, 175, 175);
-										margin-left: 10px;
-									}
-
-									p {
-										fill: rgb(175, 175, 175);
-										margin-left: 10px;
-									}
-								}
-								.wechat {
-									margin-top: 5px;
-								}
-							}
-							.title1 {
-								display: flex;
-								justify-content: center;
-								width: 40%;
-								height: 100%;
-								.sayHello {
-									display: flex;
-									flex-direction: column;
-									align-items: flex-end;
-									h3 {
-										font-size: 20px;
-										margin: 0;
-										color: rgb(202, 202, 202);
-									}
-									p {
-										font-size: 18px;
-										color: white;
-									}
-								}
-								h1 {
-									margin: 0 0 0 12px;
-									font-size: 20px;
-									font-weight: 100;
-								}
-							}
-							.mainText {
-								flex: 1;
-								height: 100%;
-							}
-						}
 					}
 				}
 			}
 			.jobExperience {
-				margin-top: 60px;
 				margin-bottom: 130px;
 				display: block;
 				height: 100%;
+				padding: 60px 35px 60px 35px;
+				background: #211e1e;
 				.jobExperience-row {
 					display: flex;
 					align-items: flex-start;
@@ -269,20 +303,19 @@ $designWidth: 1920;
 						font-size: 20px;
 						text-align: left;
 						display: block;
-						border-left: 2px solid #c75454;
+						border-left: 2px solid #ffb935;
 						padding: 10px 15px;
 						box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 					}
 					.dutyAndCompany {
 						display: flex;
-						margin-left: 20%;
+						margin-left: 25%;
 						.duty {
-							font-size: 30px;
-							font-weight: 100;
-							width: 160px;
+							font-size: 20px;
+							font-weight: 300;
+							width: 150px;
 							text-align: left;
-							margin-right: 20px;
-							color: white;
+							color: #ffb935;
 						}
 						.companyAndJobDetail {
 							display: flex;
@@ -292,9 +325,11 @@ $designWidth: 1920;
 							p {
 								color: #787878;
 								text-align: left;
+								width: 300px;
 							}
 							.company {
 								color: #dddddd;
+								width: 300px;
 							}
 						}
 					}

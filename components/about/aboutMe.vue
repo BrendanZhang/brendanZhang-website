@@ -42,66 +42,70 @@
                   <p>大连民族大学</p>
                 </div>
               </ul>
+              <div class="aboutMe-header-h1">
+                <div class="mainText">
+                  <div class="aboutMe-connection">
+                    <div class="github">
+                      <div>
+                        <svg class="icon" aria-hidden="true">
+                          <use xlink:href="#icon-github"></use>
+                        </svg>
+                        <a href="https://github.com/574549756">https://github.com/574549756</a>
+                      </div>
+                      <div>
+                        <svg class="qq" aria-hidden="true">
+                          <use xlink:href="#icon-gmail"></use>
+                        </svg>
+                        <p>ex.arc.zhang@gmail.com</p>
+                      </div>
+                    </div>
+                    <div class="wechat">
+                      <div>
+                        <svg class="icon" aria-hidden="true">
+                          <use xlink:href="#icon-wechat"></use>
+                        </svg>
+                        <p>z574549756</p>
+                      </div>
+                      <div>
+                        <svg class="qq" aria-hidden="true">
+                          <use xlink:href="#icon-qq"></use>
+                        </svg>
+                        <p class="justifyQQ">574549756</p>
+                      </div>
+                      <div>
+                        <svg class="qq" aria-hidden="true">
+                          <use xlink:href="#icon-1101dianhua"></use>
+                        </svg>
+                        <p>+86 18640961725</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </main>
           </main>
-          <div class="aboutMe-header-h1">
-            <div class="title1">
-              <div class="sayHello">
-                <h1>WELCOME TO</h1>
-                <h1>MY PERSONAL PORTFOLIO</h1>
-              </div>
-            </div>
-            <div class="mainText">
-              <div class="aboutMe-connection">
-                <div class="github">
-                  <div>
-                    <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-github"></use>
-                    </svg>
-                    <a href="https://github.com/574549756">https://github.com/574549756</a>
-                  </div>
-                  <div>
-                    <svg class="qq" aria-hidden="true">
-                      <use xlink:href="#icon-gmail"></use>
-                    </svg>
-                    <p>ex.arc.zhang@gmail.com</p>
-                  </div>
-                </div>
-                <div class="wechat">
-                  <div>
-                    <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-wechat"></use>
-                    </svg>
-                    <p>z574549756</p>
-                  </div>
-                  <div>
-                    <svg class="qq" aria-hidden="true">
-                      <use xlink:href="#icon-qq"></use>
-                    </svg>
-                    <p class="justifyQQ">574549756</p>
-                  </div>
-                  <div>
-                    <svg class="qq" aria-hidden="true">
-                      <use xlink:href="#icon-1101dianhua"></use>
-                    </svg>
-                    <p>+86 18640961725</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </header>
-    <main class="skills">
-      <radar v-bind:skills="$store.state.aboutMe.skills.skillsLeft"/>
-      <skillsRowButtom v-bind:skills="$store.state.aboutMe.skills.skillsRight"/>
+    <main class="skills-container">
+      <header class="header">
+        <h2>Skills</h2>
+        <div class="breakLine"></div>
+      </header>
+      <main class="skills">
+        <radar v-bind:skills="$store.state.aboutMe.skills.skillsLeft"/>
+        <skillsRowButtom v-bind:skills="$store.state.aboutMe.skills.skillsRight"/>
+      </main>
     </main>
     <main class="jobExperience">
+      <header class="header">
+        <h2>Experience</h2>
+        <div class="breakLine"></div>
+      </header>
       <div class="jobExperience-row">
         <span class="jobExperience-duration">2017.3~2017.7</span>
         <div class="dutyAndCompany">
-          <h2 class="duty">建筑师</h2>
+          <span class="duty">建筑师</span>
           <div class="companyAndJobDetail">
             <span class="company">重庆孚思厅建筑规划设计有限公司</span>
             <p class="jobDetail">建筑方案设计，投标方案，效果图绘制，建筑模型制作</p>

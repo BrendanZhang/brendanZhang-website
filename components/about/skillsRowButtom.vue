@@ -1,12 +1,7 @@
 <template>
   <main class="skillsButtom">
     <div class="skillsContent" v-for="skill in skills">
-      <el-progress
-        :percentage="toNumber(skill.progress)"
-        :width="50"
-        type="circle"
-        color="#b34242d5"
-      ></el-progress>
+      <el-progress :percentage="toNumber(skill.progress)" :width="50" type="circle" color="#ffb935"></el-progress>
       <svg class="skillsIcon" aria-hidden="true">
         <use v-bind:xlink:href="`#icon-${skill.icon}`"></use>
       </svg>
@@ -32,6 +27,7 @@ export default {
 .skillsButtom {
 	height: 100%;
 	width: 60%;
+	padding-left: 30px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -39,8 +35,7 @@ export default {
 	.skillsContent {
 		width: 100%;
 		padding: 10px;
-		border-left: 2px solid #c75454;
-		border-right: 2px solid rgb(26, 26, 26);
+		border-left: 2px solid #ffb935;
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 		display: flex;
 		position: relative;
