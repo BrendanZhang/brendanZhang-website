@@ -144,12 +144,13 @@ export default {
 				padding: 1px;
 				width: 26px;
 				height: 26px;
-				background: #b34242d5;
+				background: #ffb935;
 				margin-right: 10px;
-				border: 1px solid #b34242d5;
+				border: 1px solid #ffb935;
 				align-items: center;
 				border-radius: 13px;
 				margin-bottom: 8px;
+				fill: #222020;
 			}
 		}
 		h3 {
@@ -208,11 +209,11 @@ export default {
 }
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23b34242d5'%2F%3E%3C%2Fsvg%3E");
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffb935'%2F%3E%3C%2Fsvg%3E");
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23b34242d5'%2F%3E%3C%2Fsvg%3E");
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffb935'%2F%3E%3C%2Fsvg%3E");
 }
 .swiper-pagination-bullet-active {
 	background: #b34242d5;

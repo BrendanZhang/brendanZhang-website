@@ -50,7 +50,7 @@
                         <svg class="icon" aria-hidden="true">
                           <use xlink:href="#icon-github"></use>
                         </svg>
-                        <a href="https://github.com/574549756">https://github.com/574549756</a>
+                        <a href="https://github.com/BrendanZhang">https://github.com/BrendanZhang</a>
                       </div>
                       <div>
                         <svg class="qq" aria-hidden="true">

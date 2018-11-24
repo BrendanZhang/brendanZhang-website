@@ -51,7 +51,7 @@ export default {
 		&::-webkit-scrollbar {
 			display: none;
 		}
-		main.skills-container {
+		main.project-container {
 			margin: 120px 120px 0 120px;
 			color: rgb(255, 255, 255);
 			display: flex;

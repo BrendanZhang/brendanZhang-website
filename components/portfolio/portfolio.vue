@@ -1,5 +1,5 @@
 <template>
-  <main class="skills-container">
+  <main class="project-container">
     <transition name="el-fade-in-linear">
       <swiper v-if="!$route.params.id" :projects="$store.state.aboutMe.portfolio"/>
     </transition>
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.skills-container {
+.project-container {
 	position: relative;
 }
 .slider {

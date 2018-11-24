@@ -73,7 +73,7 @@ export default {
 			)
 			// 绘制图表
 			myChart.setOption({
-				backgroundColor: '#262424',
+				backgroundColor: '#242222',
 				title: {},
 				tooltip: {},
 				legend: {},
@@ -162,7 +162,6 @@ export default {
 }
 .skills {
 	display: flex;
-	background: #262424;
 	.skillsRadar {
 		position: relative;
 		height: 100%;
