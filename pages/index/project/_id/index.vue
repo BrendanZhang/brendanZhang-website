@@ -109,9 +109,9 @@ export default {
 							padding: 1px;
 							width: 30px;
 							height: 30px;
-							background: #b34242d5;
+							background: #ffb633;
 							margin-right: 10px;
-							border: 1px solid #b34242d5;
+							border: 1px solid #ffb633;
 							align-items: center;
 							border-radius: 13px;
 						}
@@ -141,7 +141,7 @@ export default {
 				width: 48%;
 				height: 40px;
 				background: #211e1e;
-				border-left: 2px solid #c75454;
+				border-left: 2px solid #ffb633;
 				border-right: 2px solid rgb(26, 26, 26);
 				box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 			}

@@ -52,7 +52,7 @@ export default {
 			display: none;
 		}
 		main.project-container {
-			margin: 120px 120px 0 120px;
+			margin: 300px 120px 0 120px;
 			color: rgb(255, 255, 255);
 			display: flex;
 			width: 900px;

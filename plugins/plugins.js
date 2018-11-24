@@ -7,6 +7,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper/dist/vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
+
 export default () => {
   Vue.use(Element, { locale })
   Vue.use({ swiper, swiperSlide })
