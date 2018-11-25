@@ -1,7 +1,11 @@
 <template>
   <div class="nameBoard">
     <main v-bind:class="{normal:selectTab.index}" class="nameBoard-container">
-      <section v-bind:class="{active:selectTab.about}" v-on:click="switchTab()">
+      <section
+        v-bind:class="{active:selectTab.about}"
+        v-on:click="switchTab()"
+        class="clickAreaContainer"
+      >
         <nuxt-link to="/about" class="clickable">
           <div class="Tab-inner">
             <h2>00</h2>

@@ -65,13 +65,13 @@ myButton.addEventListener('click', (e)=>{
 当前请求的状态
 
 
-|值|状态|描述|
-|:---:|:---:|:---:|
-|0|UNSENT（未打开）|代理被创建，但尚未调用 open() 方法。|
-|1|OPENED（未发送）|open() 方法已经被调用。send（）方法还未被调用|
-|2|HEADERS_RECEIVED（已获取响应头）|send() 方法已经被调用，并且头部和状态已经可获得。|
-|3|LOADING（正在下载响应体）|下载中； responseText 属性已经包含部分数据。|
-|4|DONE（请求完成）|整个请求过程已经完毕（请求，已经把响应 下载完毕）|
+| 值    | 状态                             | 描述                                              |
+| :---: | :------------------------------: | :-----------------------------------------------: |
+| 0     | UNSENT（未打开）                 | 代理被创建，但尚未调用 open() 方法。              |
+| 1     | OPENED（未发送）                 | open() 方法已经被调用。send（）方法还未被调用     |
+| 2     | HEADERS_RECEIVED（已获取响应头） | send() 方法已经被调用，并且头部和状态已经可获得。 |
+| 3     | LOADING（正在下载响应体）        | 下载中； responseText 属性已经包含部分数据。      |
+| 4     | DONE（请求完成）                 | 整个请求过程已经完毕（请求，已经把响应 下载完毕） |
 
 ### ii.request.status
 请求得到的响应状态码
@@ -96,16 +96,16 @@ JSON（**J**ava**S**cript **O**bject **N**otation）
 - JSON 的字符串首尾必须是 ""
 - JSON 对象：{"name":"Oracle"} JS 对象： {name: 'Oracle'}
 
-|JS|JSON|
-|:---:|:---:|
-|undefined|没有|
-|null|null|
-|['a','b']|["a","b"]|
-|function fn(){}|没有|
-|{name: 'Oracle'}|{"name":"Oracle"}|
-|'Oracle'|"Oracle"|
-|var a = {};a.self = a|搞不定（没有变量这个东西）|
-|`{__proto__}`|没有原型链|
+| JS                    | JSON                       |
+| :-------------------: | :------------------------: |
+| undefined             | 没有                       |
+| null                  | null                       |
+| ['a','b']             | ["a","b"]                  |
+| function fn(){}       | 没有                       |
+| {name: 'Oracle'}      | {"name":"Oracle"}          |
+| 'Oracle'              | "Oracle"                   |
+| var a = {};a.self = a | 搞不定（没有变量这个东西） |
+| `{__proto__}`         | 没有原型链                 |
 
 ## II.为什么用JSON
 
