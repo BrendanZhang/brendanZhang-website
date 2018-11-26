@@ -42,7 +42,8 @@ module.exports = {
     'element-ui/lib/theme-chalk/index.css',
     'normalize.css',
     '~/assets/index/clickBox.scss',
-    '~/assets/main.css'
+    '~/assets/main.css',
+    '~/node_modules/highlight.js/styles/hopscotch.css'
   ],
 
   /*
@@ -63,7 +64,11 @@ module.exports = {
     preset: 'default',
     linkify: true,
     breaks: true,
-    use: [['markdown-it-container', 'markdownContainer']]
+    injected: true,
+    use: [
+      ['markdown-it-container', 'markdownContainer'],
+      'markdown-it-highlight'
+    ]
   },
   /*
   ** Axios module configuration

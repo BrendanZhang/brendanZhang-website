@@ -31,37 +31,38 @@
 <script>
 import portfolio from '~/components/portfolio/portfolio.vue'
 export default {
-	components: {
-		portfolio
-	}
+  components: {
+    portfolio
+  }
 }
 </script>
 
 <style lang="scss">
 .router {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 0 0 80px;
-	main.inner-container {
-		display: block;
-		height: 100vh;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		&::-webkit-scrollbar {
-			display: none;
-		}
-		main.project-container {
-			margin: 300px 120px 0 120px;
-			color: rgb(255, 255, 255);
-			display: flex;
-			width: 900px;
-			flex-direction: column;
-			.row1 {
-				width: 100%;
-				border: 1px solid red;
-			}
-		}
-	}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 0 80px;
+  main.inner-container {
+    display: block;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    main.project-container {
+      margin: 300px auto;
+      color: rgb(255, 255, 255);
+      display: flex;
+      min-width: 900px;
+      max-width: 1200px;
+      flex-direction: column;
+      .row1 {
+        width: 100%;
+        border: 1px solid red;
+      }
+    }
+  }
 }
 </style>

@@ -51,17 +51,19 @@ $designWidth: 1920;
 	padding: 0 0 0 80px;
 	main.inner-container {
 		display: block;
-		height: 100vh;
+    height: 100vh;
+    width:100%;
 		overflow-x: auto;
 		overflow-y: scroll;
 		&::-webkit-scrollbar {
 			display: none;
 		}
 		div.aboutMe-Container {
-			margin: 120px 0;
+			margin: 120px auto;
 			color: rgb(255, 255, 255);
 			display: flex;
-			width: 900px;
+      min-width: 900px;
+      max-width:900px;
 			flex-direction: column;
 			header.aboutMe-header {
 				display: flex;

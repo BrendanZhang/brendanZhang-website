@@ -4,12 +4,14 @@
   </div>
 </template>
 <script>
-import markdownContent from '~/source/posts/AJAX.md'
-
+import hljs from 'markdown-it-highlightjs/index.js'
 export default {
+  created() {
+    console.log(this.markdownContent)
+  },
   computed: {
     markdownContent() {
-      return markdownContent
+      return require('~/source/posts/JavaScript-函数.md')
     }
   }
 }
@@ -23,13 +25,19 @@ export default {
     display: block;
     height: 100vh;
     overflow-x: auto;
+    max-width: 100%;
+    min-width: 900px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
     }
     .markdownContainer {
-      width: 900px;
+      max-width: 1200px;
+      min-width: 900px;
+      display: flex;
+      margin: auto;
       .markdownInner {
+        width: 100%;
         section {
           display: block;
           width: 100%;
@@ -72,15 +80,17 @@ export default {
             margin: 0 3px;
           }
           table {
+            width: 100%;
             margin: 20px 0;
             color: #dddddd;
             border-left: 2px solid #ffb633;
             background: #242222;
-            padding: 5px;
+            padding: 5px 5px 5px 10px;
             td {
-              padding: 5px 10px;
+              padding: 10px 14px;
               border-bottom: 1px solid #424242;
             }
+
             thead {
               color: #ffb833d5;
 
@@ -88,7 +98,7 @@ export default {
                 th {
                   border-bottom: 1px solid #9ac4e7;
                   color: inherit;
-                  padding: 10px 0;
+                  padding: 10px 14px;
                 }
               }
             }
