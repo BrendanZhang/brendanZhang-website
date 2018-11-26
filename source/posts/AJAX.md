@@ -128,8 +128,8 @@ else if (path === '/xxx'){
         response.end()
     }
 ```
-tigongde
-tigongde
+
+
 ```
 let string = request.responseText       //把JSON字符串放进容器
 let object = Window.JSON.parse(string)      //这个 JSON.parse 是浏览器提供的

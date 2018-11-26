@@ -2,12 +2,12 @@ importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/47210829d397123508d2.js",
-    "revision": "b5be36825b3e6f30510bdfd7408fef82"
+    "url": "/_nuxt/409aa33089342ccc11e9.js",
+    "revision": "f497a1a8c54b1b705858b12baed6e75a"
   },
   {
-    "url": "/_nuxt/6ad52f25cfcbb0ffbe16.js",
-    "revision": "798d8aa2b194a92cde45202922ad413d"
+    "url": "/_nuxt/47210829d397123508d2.js",
+    "revision": "b5be36825b3e6f30510bdfd7408fef82"
   },
   {
     "url": "/_nuxt/71d5cbebb1e7e57f7346.js",
@@ -22,10 +22,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "005cd7e53fb38b74be62b1edf519d0c7"
   },
   {
-    "url": "/_nuxt/8e69f43af8b298e13947.js",
-    "revision": "aa21ca87bcedbf9e2819448ac7af2c93"
-  },
-  {
     "url": "/_nuxt/a1aa6e43c6b80cc42480.js",
     "revision": "e6829cd3bd8c8ddada1cc0db091dc719"
   },
@@ -36,6 +32,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "/_nuxt/f62043e464fe956bc6ae.js",
     "revision": "c9fe1f13523a3d807e06574dc3961231"
+  },
+  {
+    "url": "/_nuxt/fb859a85e3edbba3abb4.js",
+    "revision": "c50131a9595fb3ae3ed4631ea5e63716"
   }
 ], {
   "cacheId": "BrendanZhang-zone",
