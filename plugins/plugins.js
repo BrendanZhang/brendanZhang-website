@@ -5,8 +5,7 @@ import 'normalize.css'
 import echarts from 'echarts'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper/dist/vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
-
+import 'markdown-it-highlight/dist/index.css'
 
 export default () => {
   Vue.use(Element, { locale })
