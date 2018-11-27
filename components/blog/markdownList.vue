@@ -4,11 +4,13 @@
   </div>
 </template>
 <script>
-import hljs from 'markdown-it-highlightjs/index.js'
 export default {
-  created() {
-    console.log(this.markdownContent)
+  data() {
+    return {
+      model: '```javascript \n {let a = 0;console.log(a)}```'
+    }
   },
+  created() {},
   computed: {
     markdownContent() {
       return require('~/source/posts/JavaScript-函数.md')
@@ -25,8 +27,7 @@ export default {
     display: block;
     height: 100vh;
     overflow-x: auto;
-    max-width: 100%;
-    min-width: 900px;
+    width: 100%;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;

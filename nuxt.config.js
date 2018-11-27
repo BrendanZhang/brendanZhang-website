@@ -66,8 +66,9 @@ module.exports = {
     breaks: true,
     injected: true,
     use: [
-      ['markdown-it-container', 'markdownContainer'],
-      'markdown-it-highlight'
+      'markdown-it-abbr',
+      'markdown-it-highlightjs',
+      'markdown-it-container'
     ]
   },
   /*

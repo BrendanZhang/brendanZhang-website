@@ -4,54 +4,59 @@ date: 2018-04-23 03:48:49
 tags: JS
 categories: JavaScript
 ---
+
 函数就是一段可以反复调用的代码块。
+
 # 1.函数的五种声明方式：
+
 ## I.具名函数
 
-```
-function f(x,y){
-    return x+y
+```js
+function f(x, y) {
+  return x + y
 }
 f.name // 'f'
 ```
 
-.name就是函数名
+.name 就是函数名
 
 ## II.匿名函数
 
-```
+```js
 var f
-f = function(x,y){
-    return x+y
+f = function(x, y) {
+  return x + y
 }
 f.name //'f'
 ```
 
-.name就是变量名
+.name 就是变量名
 
 如果要声明匿名函数，必须把它给一个变量
 
 ## III.具名函数赋值
 
-```
- var f
- f = function f2(x,y){ return x+y }
- f.name // 'f2'
- console.log(f2) // undefined
+```js
+var f
+f = function f2(x, y) {
+  return x + y
+}
+f.name // 'f2'
+console.log(f2) // undefined
 ```
 
-.name随具名函数的函数名
+.name 随具名函数的函数名
 
 和具名函数的区别： `f.name`是他相应具名函数的名字。
-`console.log(f)`的时候，会报错,因为js会找不到`f2`
+`console.log(f)`的时候，会报错,因为 js 会找不到`f2`
 就很蠢：**这就是它的不一致性**
 这是个作用域问题：
 `function f2(){}`中的`f2`只能作用于花括号内
 
 ## IV.window.Function
 
-```
-var f = new Function('x','y','return x+y')
+```js
+var f = new Function('x', 'y', 'return x+y')
 f.name // anonymous
 ```
 
@@ -62,27 +67,29 @@ f.name // anonymous
 
 ## V.箭头函数
 
-```
-var f = (x,y) => {
-     return x+y
- }
- var sum = (x,y) => x+y
- var n2 = n => n*n
+```javascript
+var f = (x, y) => {
+  return x + y
+}
+var sum = (x, y) => x + y
+var n2 = n => n * n
 ```
 
 .name 是变量名
 
 **只有一个参数**，不需要圆括号
-如果**只有一句话**，不需要花括号也不需要return(也不能返回对象)
+如果**只有一句话**，不需要花括号也不需要 return(也不能返回对象)
 **多句话**的时候，用**分号**隔开
 
 箭头函数是匿名的（没看到地方写名字呀）
 
 # 2.调用函数
+
 调用： call
+
 ## I.函数是如何储存在内存里的
 
-```
+```javascript
 new Function('x','y','return x+y')  //这时候栈里面存了地址ADDR
 //堆里存了函数的内容：
 name:   //名字，他叫匿名的
@@ -93,7 +100,7 @@ __proto__:指向函数，里面有个call
 
 `eval：把字符串当代码执行`
 
-```
+```javascript
 f.call = function(){
     return window.evaleval（f.functionBody）
 }
@@ -102,71 +109,76 @@ f(){
 }
 ```
 
-可以理解为：f指的是这个对象
+可以理解为：f 指的是这个对象
 f.call()指的是执行这个对象的函数体
 
 **可以执行代码的对象被叫做函数**
 
-## II.f(1,2)和f.call(undefined,1,2)
+## II.f(1,2)和 f.call(undefined,1,2)
+
 f.call()才是硬核（hardcore）调用
-贴心的f()语法糖
+贴心的 f()语法糖
 
 不吃糖的选手一定喜欢玩黑魂
-不吃糖才能更加从容的了解this
+不吃糖才能更加从容的了解 this
 
-## III.如何使用call
+## III.如何使用 call
 
-```
-function f(x,y){
-    return x+y
+```js
+function f(x, y) {
+  return x + y
 }
-f.call(undefined,1,2)   //3
+f.call(undefined, 1, 2) //3
 //第一个参数写undefined，从第二个参数开始传
 ```
 
 # 3.this? arguments?
 
-```
-f.call(undefined,1,2) //3
+```js
+f.call(undefined, 1, 2) //3
 //这时候好玩了，第一个参数就是this
 //第二第三个参数就是arguments
 ```
+
 ## I.规律
-1.call的第一个参数可以用this得到
-2.call的后面的参数可以用arguments得到
 
-```
-f = function(){
-    console.log(this)
-    console.log(arguments)
+1.call 的第一个参数可以用 this 得到
+2.call 的后面的参数可以用 arguments 得到
+
+```js
+f = function() {
+  console.log(this)
+  console.log(arguments)
 }
-f.call(undefined,1,2,3)
+f.call(undefined, 1, 2, 3)
 ```
-arguments会打出参数（除了第一个）组成**伪数组**
+
+arguments 会打出参数（除了第一个）组成**伪数组**
 **普通模式下：**
-如果this是undefined，浏览器会自动把this变成window(潜规则)
+如果 this 是 undefined，浏览器会自动把 this 变成 window(潜规则)
 **严格模式下：**
-this是什么他就打什么。
+this 是什么他就打什么。
 
-**所以，this就是call的第一个参数**
+**所以，this 就是 call 的第一个参数**
 
-为何JS一定要this，一定要new。因为：**要长得像JAVA**
+为何 JS 一定要 this，一定要 new。因为：**要长得像 JAVA**
 
 # 4. call stack
+
 ## I.调用队栈
 
-```
-function a (){
-    console.log('a')
-    return 'a'
+```javascript
+function a() {
+  console.log('a')
+  return 'a'
 }
-function b(){
-    console.log('b')
-    return 'b'
+function b() {
+  console.log('b')
+  return 'b'
 }
-function c(){
-    console.log('c')
-    return 'c'
+function c() {
+  console.log('c')
+  return 'c'
 }
 a.call()
 b.call()
@@ -174,70 +186,71 @@ c.call()
 ```
 
 先进后出：
-先a.call()再console.log('a')
-然后console.log('a')抹
+先 a.call()再 console.log('a')
+然后 console.log('a')抹
 a.call()最后被抹掉
 
-**先进入call stack的后出去**
+**先进入 call stack 的后出去**
 
 ## II.递归
 
-```
-function sum(n){
-    if(n =+ 1){
-        return 1
-    }else{
-        return n + sum.call(undefined, n-1)
-    }
+```javascript
+function sum(n) {
+  if ((n = +1)) {
+    return 1
+  } else {
+    return n + sum.call(undefined, n - 1)
+  }
 }
 
-sum.call(undefined, 5)  //5 + sum(4)
+sum.call(undefined, 5) //5 + sum(4)
 //sum(10)  //10 + sum(9)
 //sum(4)  //4 + sum(3)
 ```
 
-求sum(5)的时候发现要找sum(4)
-求sum(4)的时候发现要求sum(3)
+求 sum(5)的时候发现要找 sum(4)
+求 sum(4)的时候发现要求 sum(3)
 ...
-一路找到sum(1)
-之后一个一个抹掉，出来到sum(5)
+一路找到 sum(1)
+之后一个一个抹掉，出来到 sum(5)
 
-## III.什么叫Stack Overflow
+## III.什么叫 Stack Overflow
+
 栈溢出
 
-```
-function sum(n){
-    if(n =+ 1){
-        return 1
-    }else{
-        return n + sum.call(undefined, n-1)
-    }
+```javascript
+function sum(n) {
+  if ((n = +1)) {
+    return 1
+  } else {
+    return n + sum.call(undefined, n - 1)
+  }
 }
 
 sum.call(undefined, 1000000)
 ```
 
-如果栈的长度没有1000000就会爆栈
+如果栈的长度没有 1000000 就会爆栈
 
-chrome里压stack是有上限的
+chrome 里压 stack 是有上限的
 
-同时Stack Overflow是个网站，专门讨论bug的
+同时 Stack Overflow 是个网站，专门讨论 bug 的
 
 # 5.作用域（scope）
 
 ## I.tree
 
-```
+```javascript
 var a = 1
-function f1(){
-    var a = 2
-    f2.call()
+function f1() {
+  var a = 2
+  f2.call()
+  console.log(a)
+
+  function f2() {
+    var a = 3
     console.log(a)
-    
-    function f2(){
-        var a = 3
-        console.log(a)
-    }
+  }
 }
 
 f1.call()
@@ -254,25 +267,26 @@ console.log(a)
              变量a
 ```
 
-如果把`var a = 2`改成`a = 2`JS会优先认为这是个赋值
-JS会在上一级作用域找，找到了就用这个a—— **就近原则**
+如果把`var a = 2`改成`a = 2`JS 会优先认为这是个赋值
+JS 会在上一级作用域找，找到了就用这个 a—— **就近原则**
 什么时候`a = 2`算声明全局？
 在找到最后也没找到`a`的时候
 
 ## II.声明提升
 
-```
+```javascript
 var a = 1
-function f1(){
-                    //var a 应该在这里
-    f2.call()   
+function f1() {
+  //var a 应该在这里
+  f2.call()
+  console.log(a)
+  var a = 2 //变量提升： 先把它拆开看 var a 和 a = 2。 a = 2在这里
+
+  function f2() {
+    //这里也有
+    var a = 3 //这里也有
     console.log(a)
-    var a = 2           //变量提升： 先把它拆开看 var a 和 a = 2。 a = 2在这里
-    
-    function f2(){  //这里也有
-        var a = 3       //这里也有
-        console.log(a)  
-    }
+  }
 }
 
 f1.call()
@@ -283,69 +297,69 @@ console.log(a)
 声明部分声明部分声明部分
 改装完毕后它是这样的：
 
-```
+```javascript
 var a = 1
-function f1(){
-    var a               //提升声明
-    function f2(){          //函数声明就不是声明了吗？也要提升
-        var a           //提升声明
-        a = 3
-        console.log(a)
-    }
-    f2.call()
+function f1() {
+  var a //提升声明
+  function f2() {
+    //函数声明就不是声明了吗？也要提升
+    var a //提升声明
+    a = 3
     console.log(a)
-    a = 2
+  }
+  f2.call()
+  console.log(a)
+  a = 2
 }
 f1.call()
 console.log(a)
 ```
 
-所以调用f1以后`a`是什么？
-赋值在console.log后面，f2的作用域又碰不到
-那只有undefined咯
+所以调用 f1 以后`a`是什么？
+赋值在 console.log 后面，f2 的作用域又碰不到
+那只有 undefined 咯
 
 作用域仅代表变量**是哪个**
 不表达变量的**值**
 
-```
+```html
 <ul>
-    <li>选项1</li>
-    <li>选项2</li>
-    <li>选项3</li>
-    <li>选项4</li>
-    <li>选项5</li>
-    <li>选项6</li>    
+  <li>选项1</li>
+  <li>选项2</li>
+  <li>选项3</li>
+  <li>选项4</li>
+  <li>选项5</li>
+  <li>选项6</li>
 </ul>
 
-
+<script>
 var liTags = document.querySelectorAll('li')
-for(var i=0; i<liTags.length; i++){
-    
-    liTags[i].onclick = function(){
-        console.log(i)  //这个i是多少
-    }
+for (var i = 0; i < liTags.length; i++) {
+  liTags[i].onclick = function() {
+    console.log(i) //这个i是多少
+  }
 }
 
 console.log(i)
+</script>
 ```
 
-i还是那个i
+i 还是那个 i
 
-```
+```js
 var liTags
 var i
 liTags = document.querySelectorAll('li')
-for(var i=0; i<liTags.length; i++){
-    
-    liTags[i].onclick = function(){
-        console.log(i)  //这个i是多少
-    }
+for (var i = 0; i < liTags.length; i++) {
+  liTags[i].onclick = function() {
+    console.log(i) //这个i是多少
+  }
 }
 
 console.log(i)
 ```
 
-遍历之后才是点击，结果是6
+遍历之后才是点击，结果是 6
 
 **只要它不是当场执行，都有可能变。**
 
@@ -355,7 +369,7 @@ console.log(i)
 
 # 7.全局变量可耻！
 
-```
+```html
 <script>
 function(){
     var parent = document.querySelector('#self')
@@ -364,15 +378,16 @@ function(){
 </script>
 ```
 
-parent是个全局变量，直接声明赋值会覆盖它
+parent 是个全局变量，直接声明赋值会覆盖它
 所以我们希望在用这个函数的局部变量——立即调用
 
 就是声明一个匿名函数，然后立即调用。只是为了用局部变量
 
 ## I.浏览器会认为这是个语法错误
-所以需要一些小技巧来改一下↓这一坨
 
-```
+所以需要一些小技巧来改一下 ↓ 这一坨
+
+```html
 <script>
 function(){
     var parent = document.querySelector('#self')
@@ -383,7 +398,7 @@ function(){
 
 ### i.括号
 
-```
+```html
 <script>
 (function(){
     var parent = document.querySelector('#self')
@@ -394,7 +409,7 @@ function(){
 
 ### ii.括号写在调用之前
 
-```
+```html
 <script>
 (function(){
     var parent = document.querySelector('#self')
@@ -404,11 +419,12 @@ function(){
 ```
 
 ### iii.符号
+
 负号
 因为不需要这个值，只是为了这个局部变量
 为了让浏览器知道：现在不是在声明一个函数，而是在声明并调用求值
 
-```
+```html
 <script>
 -function(){
     var parent = document.querySelector('#self')
@@ -419,7 +435,7 @@ function(){
 
 同理`+`也可以咯
 
-```
+```html
 <script>
 -function(){
     var parent = document.querySelector('#self')
@@ -430,11 +446,11 @@ function(){
 
 那`!`取反 `~`二进制的取反都可以
 
-只要触发，让浏览器明白这不是一个声明而是一个立即执行函数，就可以。浏览器就不报错。 
+只要触发，让浏览器明白这不是一个声明而是一个立即执行函数，就可以。浏览器就不报错。
 
 ## II.为了解决这个问题，我们有了`let`
 
-```
+```html
 <script>
 {
     let parent = document.querySelector('#self')
@@ -449,10 +465,10 @@ function(){
 
 做个试验
 
-```
+```html
 <script>
 {
-    var parent = document.querySelector('#self')  
+    var parent = document.querySelector('#self')
 }
 console.log(parent)
 </script>
@@ -460,16 +476,14 @@ console.log(parent)
 
 **这时候，有一个变量提升**
 
-```
+```html
 <script>
-var parent
-{
-    parent = document.querySelector('#self')  
-}
-console.log(parent)
+  var parent
+  {(parent = document.querySelector('#self'))}
+  console.log(parent)
 </script>
 ```
 
 这没办法呀，`var`就这样跑出去声明了一个全局变量，因为块包不住它。
 
-### i.伟大的es6特性
+### i.伟大的 es6 特性

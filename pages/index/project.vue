@@ -47,6 +47,8 @@ export default {
     display: block;
     height: 100vh;
     overflow-x: hidden;
+    max-width: 100%;
+    min-width: 900px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
