@@ -13,7 +13,7 @@ export default {
   created() {},
   computed: {
     markdownContent() {
-      return require('~/source/posts/JavaScript-函数.md')
+      return require('~/source/posts/复习一下移动端自适应.md')
     }
   }
 }
@@ -68,7 +68,9 @@ export default {
             margin: 20px 0;
           }
           ul {
-            margin: 20px 0 20px 20px;
+            margin: 20px 0 20px 10px;
+            padding-left: 20px;
+            border-left: 1px solid #ff8533;
           }
           li {
             color: #e7e7e7;
@@ -84,7 +86,7 @@ export default {
             width: 100%;
             margin: 20px 0;
             color: #dddddd;
-            border-left: 2px solid #ffb633;
+            border-left: 2px solid #ff8533;
             background: #242222;
             padding: 5px 5px 5px 10px;
             td {
@@ -108,10 +110,15 @@ export default {
             background: #1b1a1a;
             margin: 20px 10px;
             border-radius: 5px;
-            padding: 8px;
+            padding: 12px;
             overflow: scroll;
+            &::-webkit-scrollbar {
+              display: none;
+            }
             code {
               background: #1b1a1a;
+              display: block;
+              white-space: pre-wrap;
               margin: 0 5px;
               color: #dddddd;
             }

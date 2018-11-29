@@ -61,7 +61,6 @@ export default {
 <style lang="scss">
 .banner {
   padding-top: 100px;
-  margin: 30px 0 200px 0;
   z-index: 10;
   background: #222020;
   display: flex;
@@ -77,12 +76,12 @@ export default {
       height: 30px;
     }
   }
-  .banner-inner {
+  > .banner-inner {
     display: flex;
     flex-direction: column;
     flex: 1;
     background: #211e1e;
-    img {
+    > img {
       max-width: 1200px;
       min-width: 900px;
       min-height: 675px;
@@ -126,10 +125,12 @@ export default {
           color: #dddddd;
         }
       }
-      .QRCode > img {
-        margin-left: 20px;
+      .QRCode {
         width: 100px;
         height: 100px;
+        display: block;
+        img {
+        }
       }
     }
     .codeButton {

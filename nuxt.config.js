@@ -43,7 +43,7 @@ module.exports = {
     'normalize.css',
     '~/assets/index/clickBox.scss',
     '~/assets/main.css',
-    '~/node_modules/highlight.js/styles/hopscotch.css'
+    '~/node_modules/highlight.js/styles/monokai-sublime.css'
   ],
 
   /*
