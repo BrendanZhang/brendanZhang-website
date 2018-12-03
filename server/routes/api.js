@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var Post = require('../models/post')
 
-router.get('/admin/posts', function(req, res, next) {
+router.get('/posts', function(req, res, next) {
   var opts = { raw: true }
   Post.findAll(opts)
     .then(function(posts) {
@@ -14,7 +14,7 @@ router.get('/admin/posts', function(req, res, next) {
     })
 })
 
-router.post('/admin/add'),
+router.post('/add'),
   function(req, res, next) {
     var post = req.body
     var username = req.session.user.username
@@ -38,3 +38,5 @@ router.post('/admin/add'),
         res.send({ status: 1, errorMsg: '数据库异常或者你没有权限' })
       })
   }
+
+module.exports = router

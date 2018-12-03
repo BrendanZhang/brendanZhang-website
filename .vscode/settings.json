@@ -1,8 +1,0 @@
-{
-    "editor.fontLigatures": true,
-    "editor.fontSize": 18,
-    "editor.tabSize": 2,
-		"editor.insertSpaces": false,
-		"prettier.useTabs": true,
-		"editor.fontFamily": "Ubuntu mono"
-}

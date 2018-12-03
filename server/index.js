@@ -4,8 +4,9 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
-var adminRouter = require('./routes/admin') // admin 接口
-var blogApi = require('./routes/api') // api 接口
+
+const api = require('./routes/api')
+const adminRouter = require('./routes/admin')
 
 app.set('port', port)
 
@@ -25,8 +26,8 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
-  app.use(adminRouter)
-  app.use(blogApi)
+  app.use('/admin', adminRouter)
+  app.use('/admin/api', api)
 
   // Listen the server
   app.listen(port, host)
