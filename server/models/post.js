@@ -2,7 +2,7 @@ var Sequelize = require('sequelize')
 var path = require('path')
 
 var sequelize = new Sequelize(undefined, undefined, undefined, {
-  host: 'localhost',
+  host: 'http://127.0.0.1:3000',
   dialect: 'sqlite',
 
   // SQLite only
@@ -18,7 +18,7 @@ var sequelize = new Sequelize(undefined, undefined, undefined, {
     console.log('Unable to connect to the database:', err)
   }) */
 
-var Post = sequelize.define('note', {
+var Post = sequelize.define('post', {
   title: {
     type: Sequelize.STRING
   },

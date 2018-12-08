@@ -4,6 +4,7 @@ import locale from 'element-ui/lib/locale/lang/en'
 import 'normalize.css'
 import echarts from 'echarts'
 import 'swiper/dist/css/swiper.css'
+import axios from 'axios'
 import { swiper, swiperSlide } from 'vue-awesome-swiper/dist/vue-awesome-swiper'
 
 export default () => {

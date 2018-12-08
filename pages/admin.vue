@@ -1,12 +1,16 @@
 <template>
   <div class="textArea">
     <div class="display">
-      <div></div>
+      <div class="posts"></div>
     </div>
-    <el-input v-model="title" placeholder="请输入标题"></el-input>
-    <el-input v-model="tags" placeholder="请输入tag,以/分隔"></el-input>
-    <el-input v-model="introduce" placeholder="请输入说明"></el-input>
-    <el-input type="textarea" :rows="10" placeholder="请输入内容" v-model="content"></el-input>
+    <el-input v-model="this.post[0].title" placeholder="请输入标题"></el-input>
+    <el-input v-model="this.post[0].tags" placeholder="请输入tag,以/分隔"></el-input>
+    <el-input v-model="this.post[0].introduce" placeholder="请输入说明"></el-input>
+    <el-input type="textarea" :rows="10" placeholder="请输入内容" v-model="this.post[0].content"></el-input>
+    <div class="action">
+      <el-button v-on:click="addPost">发布</el-button>
+      <el-button v-on:click="display">获取</el-button>
+    </div>
   </div>
 </template>
 <script>
@@ -15,32 +19,33 @@ export default {
     return {
       post: [
         {
-          title: '',
-          tags: '',
-          introduce: '',
-          content: ''
+          title: '测试用标题',
+          tags: '测试用tag',
+          introduce: '测试用描述',
+          content: '#测试用内容'
         }
       ],
       allposts: [{}]
     }
   },
-  create() {
-    axios
-      .get('/admin/posts', {})
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
-  },
+  async asyncData() {},
+  create() {},
   methods: {
-    addPost() {
-      axios.post('/admin/add', {
-        title: this.post.title,
-        tags: this.post.tags,
-        introduce: this.post.introduce,
-        content: this.post.content
+    async display() {
+      await this.$axios.get('/admin/api/all').then(res => {
+        console.log(res)
+      })
+    },
+    async addPost() {
+      var post = {
+        title: this.post[0].title,
+        tags: this.post[0].tags,
+        introduce: this.post[0].introduce,
+        content: this.post[0].content
+      }
+      console.log(post)
+      await this.$axios.post('/admin/api/add', post).then(res => {
+        console.log(res)
       })
     }
   }

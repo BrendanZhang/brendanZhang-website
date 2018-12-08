@@ -34,7 +34,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: { color: '#ffb633' },
-  serverMiddlewar: [],
+  serverMiddleware: ['~/server/routes/api'],
   /*
    ** Global CSS
    */
@@ -57,9 +57,10 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    /* '@nuxtjs/pwa', */
     '@nuxtjs/markdownit'
   ],
+
   markdownit: {
     preset: 'default',
     linkify: true,
@@ -75,9 +76,12 @@ module.exports = {
    ** Axios module configuration
    */
   axios: {
+    proxy: true
     // See https://github.com/nuxt-community/axios-module#options
   },
-
+  proxy: {
+    '/api/': 'http://127.0.0.1:3000/admin'
+  },
   /*
    ** Build configuration
    */
@@ -94,50 +98,3 @@ module.exports = {
     extend(config, ctx) {}
   }
 }
-/* import about from '~page/index/about'
-import project from './views/project'
-import blog from './views/blog'
-import sketch from './views/sketch'
-import projectDetail from './components/TabContent/portfolio/projectDetail'
-
-export default {
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push(
-        {
-          path: '/',
-          name: 'normal',
-          component: undefined
-        },
-        {
-          path: '/ability',
-          name: 'ability',
-          component: sketch
-        },
-        {
-          path: '/about',
-          name: 'about',
-          component: about
-        },
-        {
-          path: '/project',
-          name: 'project',
-          component: project,
-          children: [
-            {
-              path: '/project/detail/:id',
-              name: 'project',
-              component: projectDetail
-            }
-          ]
-        },
-        {
-          path: '/blog',
-          name: 'blog',
-          component: blog
-        }
-      )
-    }
-  }
-}
- */

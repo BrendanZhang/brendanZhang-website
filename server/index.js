@@ -26,8 +26,8 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
-  app.use('/admin', adminRouter)
-  app.use('/admin/api', api)
+
+  /* app.use('/admin/api', api) */
 
   // Listen the server
   app.listen(port, host)
