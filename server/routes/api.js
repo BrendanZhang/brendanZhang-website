@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
 var Post = require('../models/post')
+
+// Using req.body in nuxt server should defined bodyParser inside API file.
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -21,9 +23,9 @@ app.get('/all', function(req, res, next) {
     })
 })
 
-/* app.post('/add', function(req, res, next) {
+app.post('/add', function(req, res, next) {
   console.log(req.body)
-  console.log(post)
+  let post = req.body.post
   Post.create({
     title: post.title,
     tags: post.tags,
@@ -31,15 +33,9 @@ app.get('/all', function(req, res, next) {
     content: post.content
   })
     .then(function() {
-      console.log(arguments)
       res.send({ msg: '接收到了' })
     })
     .catch(function() {
       res.send({ status: 1, errorMsg: '数据库异常或者你没有权限' })
     })
-})
- */
-app.post('/add', function(req, res, next) {
-  console.log(req.body)
-  res.send({ msg: '这里收到了' })
 })

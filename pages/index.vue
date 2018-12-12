@@ -63,40 +63,38 @@
 <script>
 import store from '~/store/index'
 export default {
-	transition: 'page',
-	name: 'resumeBoard',
-	store,
-	mounted() {
-		this.switchTab()
-	},
-	watch: {
-		$route: function() {
-			this.switchTab()
-		}
-	},
-	methods: {
-		switchTab() {
-			for (let i in this.selectTab) {
-				this.selectTab[i] = false
-			}
-			console.log('改之前')
-			console.log(this.selectTab.about)
-			console.log(this.$route.name)
-			this.selectTab[
-				this.$route.name
-					.replace('index-', '')
-					.replace('-id', '')
-			] = true
-			console.log('改之后')
-			console.log(this.selectTab.about)
-			console.log(this.$route.name)
-		}
-	},
-	computed: {
-		selectTab() {
-			return this.$store.state.selectTab
-		}
-	}
+  transition: 'page',
+  name: 'resumeBoard',
+  store,
+  mounted() {
+    this.switchTab()
+  },
+  watch: {
+    $route: function() {
+      this.switchTab()
+    }
+  },
+  methods: {
+    switchTab() {
+      for (let i in this.selectTab) {
+        this.selectTab[i] = false
+      }
+      console.log('改之前')
+      console.log(this.selectTab.about)
+      console.log(this.$route.name)
+      this.selectTab[
+        this.$route.name.replace('index-', '').replace('-id', '')
+      ] = true
+      console.log('改之后')
+      console.log(this.selectTab.about)
+      console.log(this.$route.name)
+    }
+  },
+  computed: {
+    selectTab() {
+      return this.$store.state.selectTab
+    }
+  }
 }
 </script>
 
