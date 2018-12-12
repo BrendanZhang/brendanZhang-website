@@ -44,8 +44,8 @@ export default {
         content: this.post[0].content
       }
       console.log(post)
-      await this.$axios.post('/admin/api/add', post).then(res => {
-        console.log(res)
+      await this.$axios.post('/admin/api/add', { note: 'xxx' }).then(res => {
+        console.log(res.data)
       })
     }
   }

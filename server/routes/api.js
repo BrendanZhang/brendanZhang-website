@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
 var Post = require('../models/post')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 module.exports = {
   path: '/admin/api/',
@@ -39,4 +41,5 @@ app.get('/all', function(req, res, next) {
  */
 app.post('/add', function(req, res, next) {
   console.log(req.body)
+  res.send({ msg: '这里收到了' })
 })

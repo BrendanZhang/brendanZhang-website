@@ -1,4 +1,9 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const bodyParser = require('body-parser')
+const passport = require('passport')
+const session = require('express-session')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
@@ -26,6 +31,11 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
+  app.use(bodyParser.json())
+  app.use(logger('dev'))
+  app.use(express.json())
+  app.use(express.urlencoded({ extended: false }))
+  app.use(cookieParser())
 
   /* app.use('/admin/api', api) */
 
