@@ -21,6 +21,9 @@ const store = () =>
       SET_USER: function(state, user) {
         state.authUser = user
       },
+      search(state, payload) {
+        state.search = payload
+      },
       gotAllPosts(state, payload) {
         state.tableData = payload
       }
@@ -39,6 +42,7 @@ const store = () =>
           })
           .then(tableData => {
             context.commit('gotAllPosts', tableData)
+            return tableData
           })
       }
     }

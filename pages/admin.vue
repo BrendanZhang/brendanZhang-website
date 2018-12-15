@@ -50,15 +50,14 @@ export default {
   created() {
     this.display()
   },
-  watch: {
-    /* tableData: this.display() */
-  },
   computed: {
     search: {
       get: function() {
         return this.$store.state.search
       },
-      set: function() {}
+      set: function(value) {
+        this.$store.commit('search', value)
+      }
     },
     tableData: {
       get: function() {
@@ -75,13 +74,14 @@ export default {
       console.log(index, row)
     },
     handleDelete(index, row) {
-      console.log(index, row)
+      this.delete(row.id)
+      this.display()
     },
     formatter(row, column) {
       return row.introduce
     },
     async display() {
-      this.$store.dispatch('getAllPosts')
+      await this.$store.dispatch('getAllPosts')
     },
     async addPost() {
       var post = {
@@ -90,10 +90,22 @@ export default {
         introduce: this.editPost.introduce,
         content: this.editPost.content
       }
-      console.log(this.editPost)
-      await this.$axios.post('/admin/api/add', { post }).then(res => {
-        console.log(res.data)
-      })
+      let flag = true
+      for (const key in post) {
+        if (
+          (post[key] === 0 || post[key]) &&
+          post[key].toString().replace(/(^\s*)|(\s*$)/g, '') !== ''
+        ) {
+        } else {
+          flag = false
+          break
+        }
+      }
+      if (flag) {
+        await this.$axios.post('/admin/api/add', { post }).then(res => {
+          this.display()
+        })
+      }
     },
     async delete(id) {
       await this.$axios.post('/admin/api/delete', { id: id }).then(res => {

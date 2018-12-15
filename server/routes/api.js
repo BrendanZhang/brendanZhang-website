@@ -15,7 +15,6 @@ app.get('/all', function(req, res, next) {
   var opts = { raw: true }
   Post.findAll(opts)
     .then(function(posts) {
-      console.log(posts)
       res.send({ status: 0, data: posts, msg: '这个可以请求到' })
     })
     .catch(function() {
@@ -24,7 +23,6 @@ app.get('/all', function(req, res, next) {
 })
 
 app.post('/add', function(req, res, next) {
-  console.log(req.body)
   let post = req.body.post
   Post.create({
     title: post.title,
@@ -42,7 +40,7 @@ app.post('/add', function(req, res, next) {
 
 app.post('/delete', function(req, res, next) {
   var postId = req.body.id
-
+  console.log(postId)
   Post.destroy({ where: { id: postId } })
     .then(function(deleteLen) {
       if (deleteLen === 0) {
