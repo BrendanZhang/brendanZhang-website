@@ -39,3 +39,21 @@ app.post('/add', function(req, res, next) {
       res.send({ status: 1, errorMsg: '数据库异常或者你没有权限' })
     })
 })
+
+app.post('/delete', function(req, res, next) {
+  var postId = req.body.id
+
+  Post.destroy({ where: { id: postId } })
+    .then(function(deleteLen) {
+      if (deleteLen === 0) {
+        return res.send({ status: 1, errorMsg: '你没有权限' })
+      }
+      res.send({ status: 0, msg: '删除成功' })
+    })
+    .catch(function(e) {
+      res.send({
+        status: 1,
+        errorMsg: '数据库异常或者你没有权限'
+      })
+    })
+})
