@@ -1,13 +1,23 @@
 <template>
   <div class="textArea">
+    <header class="topbar">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-gerenlogoBold"></use>
+      </svg>
+      <svg class="icon" aria-hidden="true" v-on:click="switchEditFlagToNew">
+        <use xlink:href="#icon-add"></use>
+      </svg>
+    </header>
     <div class="display">
       <div class="posts">
         <el-table
           :data="tableData.filter(data => !search || data.introduce.toLowerCase().includes(search.toLowerCase()))"
           style="width: 100%"
+          max-height="600"
         >
           <el-table-column label="Date" prop="date"></el-table-column>
           <el-table-column label="Title" prop="title"></el-table-column>
+          <el-table-column label="tags" prop="tags"></el-table-column>
           <el-table-column label="Introduce" prop="introduce"></el-table-column>
           <el-table-column align="right">
             <template slot="header" slot-scope="scope">
@@ -24,14 +34,16 @@
           </el-table-column>
         </el-table>
       </div>
-    </div>
-    <el-input v-model="editPost.title" placeholder="请输入标题"></el-input>
-    <el-input v-model="editPost.tags" placeholder="请输入tag,以/分隔"></el-input>
-    <el-input v-model="editPost.introduce" placeholder="请输入说明"></el-input>
-    <el-input type="textarea" :rows="10" placeholder="请输入内容" v-model="editPost.content"></el-input>
-    <div class="action">
-      <el-button v-on:click="addPost">发布</el-button>
-      <el-button v-on:click="display">获取</el-button>
+
+      <el-input v-model="editPost.title" placeholder="请输入标题"></el-input>
+      <el-input v-model="editPost.tags" placeholder="请输入tag,以/分隔"></el-input>
+      <el-input v-model="editPost.introduce" placeholder="请输入说明"></el-input>
+      <el-input type="textarea" :rows="10" placeholder="请输入内容" v-model="editPost.content"></el-input>
+      <div class="action">
+        <el-button v-if="!editFlag" v-on:click="addPost">发布</el-button>
+        <el-button v-if="editFlag" v-on:click="addPost">更新</el-button>
+        <p v-if="this.editFlag" v-model="editPost.id">文章ID: {{editPost.id}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -65,13 +77,31 @@ export default {
       },
       set: function() {}
     },
-    editPost() {
-      return this.$store.state.editPost
+    editPost: {
+      get: function() {
+        return this.$store.state.editPost
+      },
+      set: function(payload) {
+        this.$store.commit('switchToCurrent', payload)
+      }
+    },
+    editFlag: {
+      get: function() {
+        return this.$store.state.editFlag
+      },
+      set: function(payload) {
+        this.$store.commit('switchEditFlag', payload)
+      }
     }
   },
   methods: {
+    switchEditFlagToNew() {
+      this.editFlag = false
+    },
     handleEdit(index, row) {
-      console.log(index, row)
+      let obj = {}
+      this.editPost = JSON.parse(JSON.stringify(row))
+      this.editFlag = true
     },
     handleDelete(index, row) {
       this.delete(row.id)
@@ -91,6 +121,8 @@ export default {
         content: this.editPost.content
       }
       let flag = true
+      let id = this.editPost.id
+      console.log(post.introduce)
       for (const key in post) {
         if (
           (post[key] === 0 || post[key]) &&
@@ -101,8 +133,12 @@ export default {
           break
         }
       }
-      if (flag) {
+      if (flag && !id) {
         await this.$axios.post('/admin/api/add', { post }).then(res => {
+          this.display()
+        })
+      } else if (flag && id) {
+        await this.$axios.post('/admin/api/edit', { post, id }).then(res => {
           this.display()
         })
       }
@@ -117,7 +153,27 @@ export default {
 </script>
 
 <style lang="scss">
+.topbar {
+  background: #323030;
+  height: 40px;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .icon {
+    fill: white;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+}
 .display {
+  .action {
+    display: flex;
+    justify-content: space-between;
+  }
+  padding: 30px;
   .posts {
     section {
       ol {

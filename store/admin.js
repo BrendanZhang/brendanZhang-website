@@ -9,13 +9,15 @@ const store = () =>
   new Vuex.Store({
     state: {
       editPost: {
+        id: '',
         title: '测试标题改动',
         tags: '测试tag改动/tag',
         introduce: '测试说明改动',
         content: '#测试内容'
       },
       tableData: [],
-      search: ''
+      search: '',
+      editFlag: false
     },
     mutations: {
       SET_USER: function(state, user) {
@@ -26,6 +28,12 @@ const store = () =>
       },
       gotAllPosts(state, payload) {
         state.tableData = payload
+      },
+      switchToCurrent(state, payload) {
+        state.editPost = payload
+      },
+      switchEditFlag(state, payload) {
+        state.editFlag = payload
       }
     },
     actions: {

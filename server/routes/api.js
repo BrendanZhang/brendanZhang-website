@@ -55,3 +55,22 @@ app.post('/delete', function(req, res, next) {
       })
     })
 })
+app.post('/edit', function(req, res, next) {
+  var postId = req.body.id
+  var post = req.body.post
+  Post.update(
+    {
+      title: post.title,
+      tags: post.tags,
+      introduce: post.introduce,
+      content: post.content
+    },
+    { where: { id: postId } }
+  )
+    .then(function(e) {
+      res.send({ status: 1 })
+    })
+    .error(function(e) {
+      res.send({ status: 1 })
+    })
+})
