@@ -122,7 +122,6 @@ export default {
       }
       let flag = true
       let id = this.editPost.id
-      console.log(post.introduce)
       for (const key in post) {
         if (
           (post[key] === 0 || post[key]) &&
@@ -133,11 +132,11 @@ export default {
           break
         }
       }
-      if (flag && !id) {
+      if (flag && !this.editFlag) {
         await this.$axios.post('/admin/api/add', { post }).then(res => {
           this.display()
         })
-      } else if (flag && id) {
+      } else if (flag && this.editFlag) {
         await this.$axios.post('/admin/api/edit', { post, id }).then(res => {
           this.display()
         })

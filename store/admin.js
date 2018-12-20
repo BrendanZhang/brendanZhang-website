@@ -10,10 +10,10 @@ const store = () =>
     state: {
       editPost: {
         id: '',
-        title: '测试标题改动',
-        tags: '测试tag改动/tag',
-        introduce: '测试说明改动',
-        content: '#测试内容'
+        title: '',
+        tags: '',
+        introduce: '',
+        content: ''
       },
       tableData: [],
       search: '',

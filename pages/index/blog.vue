@@ -31,9 +31,9 @@
 <script>
 import markdownList from '~/components/blog/markdownList'
 export default {
-	components: {
-		markdownList
-	}
+  components: {
+    markdownList
+  }
 }
 </script>
 

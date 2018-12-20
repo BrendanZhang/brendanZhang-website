@@ -10,9 +10,6 @@ const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
 
-const api = require('./routes/api')
-const adminRouter = require('./routes/admin')
-
 app.set('port', port)
 
 // Import and Set Nuxt.js options

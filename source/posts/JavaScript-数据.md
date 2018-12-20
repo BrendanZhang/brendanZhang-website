@@ -8,7 +8,7 @@ categories: JavaScript
 ### 种类&备注
 七种数据类型：
 
-```
+```js
 number;
 string;
 boolean;
@@ -45,38 +45,38 @@ object
 这就叫做，**转义符**
 他不仅仅有这个作用还有：
 
-|转义符|作用|Unicode|
-|:---:|:---:|:---:|
-|`\0`|null|（\u0000）|
-|`\b`|后退键|（\u0008）|
-|`\f`|换页符|（\u000C）|
-|`\n`|换行符|（\u000A）|
-|`\r`|回车键|（\u000D）|
-|`\t`|制表符|（\u0009）|
-|`\v`|垂直制表符|（\u000B）|
-|`\'`|单引号|（\u0027）|
-|`\"`|双引号|（\u0022）|
-|`\\`|反斜杠|（\u005C）|
+| 转义符 |    作用    |  Unicode   |
+| :----: | :--------: | :--------: |
+|  `\0`  |    null    | （\u0000） |
+|  `\b`  |   后退键   | （\u0008） |
+|  `\f`  |   换页符   | （\u000C） |
+|  `\n`  |   换行符   | （\u000A） |
+|  `\r`  |   回车键   | （\u000D） |
+|  `\t`  |   制表符   | （\u0009） |
+|  `\v`  | 垂直制表符 | （\u000B） |
+|  `\'`  |   单引号   | （\u0027） |
+|  `\"`  |   双引号   | （\u0022） |
+|  `\\`  |   反斜杠   | （\u005C） |
 
 ### iii.多行字符串
 不是字符串里面有回车
 而是我希望字符串有换行
 
-```
+```js
 var s = '12345 \
-        67890'
+  67890'
 ```
 
 就像命令行一样
 
-```
+```js
 var s2 = '12345' + '67890'
 ```
 
 这样也可以
 **但是方法一有个很鬼的问题**
 
-```
+```js
 var s = '12345 \     //反杠后面如果有一堆空格
 67890'
 ```
@@ -88,7 +88,7 @@ var s = '12345 \     //反杠后面如果有一堆空格
 **既然这个这么坑，那JS要解决它呀**
 所以在ES6里就有了这个符号`就是这个点
 
-```
+```js
 var s4 = `12345
 67890`
 ```
@@ -106,7 +106,7 @@ var s4 = `12345
 ES6引入了新的数据类型Symbol，用于生成一个全局唯一的值。
 ### ii.怎么用
 借用方方老师的例子
-```
+```js
 var race = {
   protoss: 'protoss', // 神族
   terran: 'terran', // 人族
@@ -124,7 +124,7 @@ function createRole(type){
 那么值甚至可以乱敲只要他们三个种族的值不重复就可以。
 那么Symbol可以替代对应的值
 
-```
+```js
 var race = {
   protoss: Symbol(),
   terran: Symbol(),
@@ -157,7 +157,7 @@ race.protoss !== race.zerg // true
 复杂类型由简单类型组成。
 举个例子：
 
-```
+```js
 var name = 'Oracle'
 var age = '24'
 var gender = 'male'
@@ -165,12 +165,11 @@ var gender = 'male'
 
 他们三个都是一对一，冥冥之中似乎可以放在一起。
 
-```
-var person = 
-{
-'name':'Oracle',
-'age':'24',
-'gender':'male'
+```javascript
+var person = {
+  'name':'Oracle',
+  'age':'24',
+  'gender':'male'
 }
 ```
 
@@ -189,7 +188,7 @@ var person =
 这个麻烦了
 **解决这个问题之前请参见([JavaScript-类型](https://574549756.github.io/2018/04/11/JavaScript-%E7%B1%BB%E5%9E%8B/))**
 
-```
+```js
 var a = {}
 a.self = a
 a.self.self.self是什么
@@ -199,7 +198,7 @@ a.self.self.self是什么
 
 ### iii.空字符串是否能当做key？
 
-```
+```js
 person = {'':'oracle'}
 person['']   //oracle
 ```
@@ -218,9 +217,9 @@ person['']   //oracle
 可以，因为中文可以当做变量名。
 ### vii.for in
 
-```
+```js
 for(var key in person){
-        console.log(key)
+  console.log(key)
 }
 ```
 
@@ -228,17 +227,17 @@ for(var key in person){
 出现`key`的顺序是看天的。
 那我想打出值呢？
 
-```
+```js
 for(var key in person){
-        console.log(person[key])
+  console.log(person[key])
 }
 ```
 
 那一起打呢？
 
-```
+```js
 for(var key in person){
-        console.log(key,person[key])
+  console.log(key,person[key])
 }
 ```
 
@@ -247,7 +246,7 @@ for(var key in person){
 ### i.干吗用的？
 看类型的
 
-```
+```js
 var t = 1
 typeof t //"number"
 

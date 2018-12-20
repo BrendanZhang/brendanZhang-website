@@ -34,7 +34,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: { color: '#ffb633' },
-  serverMiddleware: ['~/server/routes/api'],
+  serverMiddleware: ['~/server/routes/adminApi', '~/server/routes/api'],
   /*
    ** Global CSS
    */
