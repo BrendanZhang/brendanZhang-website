@@ -4,7 +4,6 @@
       <header>
         <h2>{{blog.year}}</h2>
         <h3>{{blog.day}}</h3>
-        {{blog.time}}
       </header>
       <main>
         <h2>{{blog.title}}</h2>
@@ -62,32 +61,38 @@ export default {
 .markdownList {
   max-width: 1200px;
   min-width: 900px;
+  padding: 0 100px 0 50px;
   display: flex;
   margin: auto;
   flex-wrap: wrap;
   justify-content: space-between;
   .blogTag {
-    width: 350px;
-    background: white;
-    margin: 20px 10px;
+    width: 49%;
     height: 200px;
     display: flex;
+    margin: 10px 0;
     justify-content: space-between;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
     main {
       height: 100%;
+      width: 80%;
       background: #252323;
       padding: 10px;
-      width: 70%;
       font-size: 15px;
       color: #dddddd;
+      h2 {
+        margin-bottom: 20px;
+        color: #ffa033;
+      }
     }
     header {
-      width: 20%;
-      height: 100%;
       padding: 10px;
       font-size: 15px;
-      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #9c9c9c;
     }
   }
 }
