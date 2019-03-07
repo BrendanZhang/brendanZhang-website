@@ -35,11 +35,11 @@
         <router-link to="/blog" class="clickable">
           <div class="Tab-inner">
             <h2>02</h2>
-            <h1>My Blog</h1>
+            <h1>Blog</h1>
           </div>
           <div class="Board-inner">
             <h2>02</h2>
-            <h1>My Blog</h1>
+            <h1>Blog</h1>
           </div>
         </router-link>
         <router-view class="router"></router-view>

@@ -1,44 +1,42 @@
 <template>
-  <div class="markdownList">
-    <div class="blogTag" v-for="blog in model">
-      <header>
-        <h2>{{blog.year}}</h2>
-        <h3>{{blog.day}}</h3>
-      </header>
-      <main>
-        <h2>{{blog.title}}</h2>
-        <p>{{blog.introduce}}</p>
-      </main>
+  <div class="markdownList-container">
+    <div class="markdownList" v-if="searchData.length>0">
+      <div class="blogTag" v-for="blog in model">
+        <header>
+          <h2>{{blog.year}}</h2>
+          <h3>{{blog.day}}</h3>
+        </header>
+        <main>
+          <h2>{{blog.title}}</h2>
+          <p>{{blog.introduce}}</p>
+        </main>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  props: ['model'],
   data() {
-    return {
-      model: 'aaa',
-      search: ''
+    return {}
+  },
+
+  computed: {
+    searchData: function() {
+      let search = this.search
+      let data = this.model
+      console.log(this.model)
+      if (search) {
+        return this.model.filter(
+          data =>
+            !search ||
+            data.introduce.toLowerCase().includes(search.toLowerCase())
+        )
+      }
+      console.log(this.model)
+      return this.model
     }
-  },
-  created() {
-    this.$axios
-      .get('/blog/api/all')
-      .then(res => {
-        let tableData = res.data.data
-        for (let i in tableData) {
-          let date = tableData[i].createdAt.split(' ')[0]
-          let year = date.split('-')[0]
-          tableData[i].year = year
-          tableData[i].day = date.split('-')[1] + '.' + date.split('-')[2]
-        }
-        return tableData
-      })
-      .then(tableData => {
-        this.model = JSON.parse(JSON.stringify(tableData))
-        console.log(this.model)
-      })
-  },
-  computed: {}
+  }
 }
 </script>
 
@@ -58,6 +56,14 @@ export default {
     }
   }
 }
+.markdownList-container {
+  max-width: 1200px;
+  min-width: 900px;
+  padding: 0 100px 0 50px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 .markdownList {
   max-width: 1200px;
   min-width: 900px;
@@ -68,6 +74,7 @@ export default {
   justify-content: space-between;
   .blogTag {
     width: 49%;
+    min-width: 350px;
     height: 200px;
     display: flex;
     margin: 10px 0;
@@ -84,6 +91,10 @@ export default {
       h2 {
         margin-bottom: 20px;
         color: #ffa033;
+      }
+      p {
+        word-wrap: break-word;
+        word-break: break-all;
       }
     }
     header {
